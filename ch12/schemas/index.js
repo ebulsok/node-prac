@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 
 const { NODE_ENV } = process.env;
-const MONGO_URL = 'monogdb://localhost:27017/gif';
+const MONGO_URL = 'mongodb://127.0.0.1:27017';
 
 const connect = () => {
     if(NODE_ENV !== 'production') mongoose.set('debug', true);
     mongoose.connect(MONGO_URL, {
         dbName: 'gifchat',
         useNewUrlParser: true,
-        useCreateIndex: true,
+        // useCreateIndex: true,
     }, (error) => {
         if(error) console.log('몽고디비 연결 에러', error);
         else console.log('몽고디비 연결 성공');
